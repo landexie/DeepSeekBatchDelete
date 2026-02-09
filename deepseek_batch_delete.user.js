@@ -6,7 +6,7 @@
 // @version      2026-2-9
 // @description  为DeepSeek网页添加了一个批量删除按钮
 // @match        https://chat.deepseek.com/*
-// @icon         https://cdn.deepseek.com/chat/icon.png
+// @icon         https://www.deepseek.com/favicon.ico
 // @run-at       document-idle
 // ==/UserScript==
 
@@ -102,6 +102,7 @@
                 a.style.justifyContent = "unset";
                 let checkbox = document.createElement("input");
                 checkbox.type = "checkbox";
+                checkbox.style.cssText = `height:100%; aspect-ratio: 1;`;
                 checkbox.name = a.href.toString().split("/").pop();
                 checkbox.refer = a;
                 checkbox.onclick = (e) => {

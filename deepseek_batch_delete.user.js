@@ -3,6 +3,7 @@
 // @namespace    https://github.com/landexie
 // @homepageURL  https://github.com/landexie/DeepSeekBatchDelete
 // @author       landexie
+// @license      MIT
 // @version      2026-2-9
 // @description  为DeepSeek网页添加了一个批量删除按钮
 // @match        https://chat.deepseek.com/*

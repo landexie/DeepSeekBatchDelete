@@ -21,7 +21,7 @@
             return; // 未登录
         }
 
-        let myStyle = document.createElement("style");
+        const myStyle = document.createElement("style");
         myStyle.textContent = `            
             .btn::after { content: "";}
             .btn-danger { color: var(--dsw-alias-state-error-primary); overflow: hidden}
@@ -42,19 +42,20 @@
         `;
         document.head.append(myStyle);
 
-        let btnNewChat = document.querySelector(".ds-scroll-area").previousSibling;
-        let btnBatchDelete = btnNewChat.cloneNode();
+        // const btnNewChat = document.querySelector(".ds-scroll-area").previousSibling;
+        const btnNewChat = document.querySelector("._5a8ac7a");  // 直接用混淆后的类名
+        const btnBatchDelete = btnNewChat.cloneNode();
         btnBatchDelete.classList.add("btn", "btn-danger");
-        let btnCancel = btnNewChat.cloneNode();
+        const btnCancel = btnNewChat.cloneNode();
         btnCancel.classList.add("btn");
-        let btnReverse = btnNewChat.cloneNode();
+        const btnReverse = btnNewChat.cloneNode();
         btnReverse.classList.add("btn");
-        let btnConfirm = btnNewChat.cloneNode();
+        const btnConfirm = btnNewChat.cloneNode();
         btnConfirm.classList.add("btn", "btn-danger");
         let checkboxes = [];
 
-        let container = document.createElement("div");
-        let container2 = document.createElement("div");
+        const container = document.createElement("div");
+        const container2 = document.createElement("div");
 
         btnNewChat.before(container);
         container.style.cssText = `display : flex; justify-content: space-between;`;
@@ -97,8 +98,8 @@
 
         function addCheckbox() {
             // let chats = document.querySelectorAll(".ds-scroll-area .ds-scroll-area a");
-            let chats = document.querySelector(".ds-scroll-area").querySelector(".ds-scroll-area").querySelectorAll("a");
-
+            // let chats = document.querySelector(".ds-scroll-area").querySelector(".ds-scroll-area").querySelectorAll("a");
+            const chats = document.querySelectorAll("._546d736");
             for (let a of chats) {
                 a.style.justifyContent = "unset";
                 let checkbox = document.createElement("input");
@@ -125,7 +126,7 @@
         /* 清理没有对话的日期分组 */
         function removeEmptyDateGroup() {
             // let dateGroups = document.querySelector(".ds-scroll-area .ds-scroll-area").firstChild.childNodes;
-            let dateGroups = document.querySelector(".ds-scroll-area").querySelector(".ds-scroll-area").firstChild.childNodes;
+            const dateGroups = document.querySelectorAll("._3098d02");
             for (let dateGroup of dateGroups) {
                 let flagNoContent = true;
                 for (let a of dateGroup.querySelectorAll("a")) {
@@ -152,13 +153,14 @@
                 }
             }
         });
-        observer.observe(document.querySelector(".ds-scroll-area").querySelector(".ds-scroll-area").firstChild, {
+        // observer.observe(document.querySelector(".ds-scroll-area").querySelector(".ds-scroll-area").firstChild, {
+        observer.observe(document.querySelector("._77cdc67"), {
             childList: true,
             subtree: true
         });
 
         function confirmDelete() {
-            let userToken = JSON.parse(localStorage.getItem("userToken")).value;
+            const userToken = JSON.parse(localStorage.getItem("userToken")).value;
 
             (async () => {
                 const promises = [];
